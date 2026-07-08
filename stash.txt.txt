@@ -1,0 +1,68 @@
+import * as readline from 'readline';
+// This is our main function
+function fizzbuzz(): void {
+
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+
+
+    rl.question('Enter a number: ', (input: string) => {
+        
+        const nr = Number(input);
+
+        if (isNaN(nr) || nr <= 0) {
+            console.log('You did not enter a valid positive number.');
+            rl.close();
+            return;
+        }
+
+        for (let i = 1; i <= nr; i ++) {
+            let output: String[] = [];
+            if (i % 3 == 0) {
+                output.push("Fizz");
+            }
+            if (i % 5 == 0) {
+                output.push("Buzz");
+            }
+            if (i % 7 == 0) {
+                output.push( "Bang");
+            }
+            if (i % 11 == 0 ) {
+                output = [];
+                output.push("Bong");
+            }
+            if (i % 13 == 0) {
+                const found = output.find(el => el == "Fizz");
+                if (found != undefined) {
+                    output.splice(1, 0, "Fezz");
+                } else {
+                    output.splice(0, 0, "Fezz");
+                }
+            
+            if (i % 17 == 0) {
+                output.reverse();
+            }
+
+            if (output.length == 0) {
+                console.log(i);
+
+            } else {
+                console.log(output.join(""));
+            }
+
+
+        }
+        rl.close();
+    }
+    // Put your code here...
+
+    }
+}
+// Now, we run the main function:
+fizzbuzz();
+console.log("Functie");
+
+
