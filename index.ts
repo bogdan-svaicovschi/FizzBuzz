@@ -1,9 +1,7 @@
-
-// This is our main function
 function fizzbuzz(): void {
 
     for (let i = 1; i <= 200; i ++) {
-        let output: String[] = [];
+        const output: String[] = [];
         if (i % 3 == 0) {
             output.push("Fizz");
         }
@@ -14,12 +12,11 @@ function fizzbuzz(): void {
             output.push( "Bang");
         }
         if (i % 11 == 0 ) {
-            output = [];
+            output.splice(0, output.length);
             output.push("Bong");
         }
         if (i % 13 == 0) {
-            const found = output.find(el => el == "Fizz");
-            if (found != undefined) {
+            if (output.find(el => el == "Fizz") != undefined) {
                 output.splice(1, 0, "Fezz");
             } else {
                 output.splice(0, 0, "Fezz");
@@ -36,10 +33,8 @@ function fizzbuzz(): void {
             console.log(output.join(""));
         }
 
-
     }
-    // Put your code here...
+
 }
-// Now, we run the main function:
+
 fizzbuzz();
-console.log("Functie");
